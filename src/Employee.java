@@ -1,16 +1,19 @@
 public class Employee {
+    private static int idCounter = 1; 
+    private int id;                   
+
     private String name;
     private int department;
     private int salary;
 
-    static int id = 0;
-
-    public Employee(String name, int department, int salary) {
-        this.name = name;
-        this.department = department;
-        this.salary = salary;
-        id++;
-    }
+    public String toString() {
+    return "Employee{" +
+            "id=" + id +            
+            ", name='" + name + '\'' +
+            ", department=" + department +
+            ", salary=" + salary +
+            '}';
+}
 
     public String getName() {
         return name;
@@ -31,6 +34,9 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+    public int getId() {
+        return id;
 
     public int hashCode() {
         return 31 * name.hashCode() + department + salary + id;
