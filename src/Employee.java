@@ -1,19 +1,21 @@
 public class Employee {
-    private static int idCounter = 1; 
-    private int id;                   
+    private static int idCounter = 1;
+    private int id;
 
     private String name;
     private int department;
     private int salary;
 
-    public String toString() {
-    return "Employee{" +
-            "id=" + id +            
-            ", name='" + name + '\'' +
-            ", department=" + department +
-            ", salary=" + salary +
-            '}';
-}
+    public Employee(String name, int department, int salary) {
+        this.id = idCounter++;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -35,12 +37,12 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int getId() {
-        return id;
-
+    @Override
     public int hashCode() {
         return 31 * name.hashCode() + department + salary + id;
     }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -52,6 +54,7 @@ public class Employee {
                 name.equals(employee.name);
     }
 
+    @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
